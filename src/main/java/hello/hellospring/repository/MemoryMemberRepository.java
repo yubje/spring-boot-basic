@@ -25,11 +25,15 @@ public class MemoryMemberRepository implements MemberRepository {
     public Optional<Member> findByName(String name) {
         return store.values().stream() // 저장 요소를 하나씩 참조
                 .filter(member -> member.getName().equals(name))  // 람다식으로 이름 가져와서 동일한게 있는지 확인
-                .findAny();  // 하나라도 있으면 return 
+                .findAny();  // 하나라도 있으면 return
     }
 
     @Override
     public List<Member> findAll() {
         return new ArrayList<>(store.values());
+    }
+
+    public void clearStore() {
+        store.clear();
     }
 }
