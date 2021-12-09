@@ -1,17 +1,18 @@
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
-// import org.junit.jupiter.api.Assertions;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+
+// import org.junit.jupiter.api.Assertions;
 
 // public 으로 안해도 됨
 class MemoryMemberRepositoryTest {
+
     MemoryMemberRepository repository = new MemoryMemberRepository();
 
     // 테스트 항목 전체 실행 시 순서는 랜덤이며, 이 때 케이스 간 중복이 발생하지 않도록 매 테스트 항목 수행 시 store를 비워준다.
@@ -65,4 +66,6 @@ class MemoryMemberRepositoryTest {
         assertThat(result.size()).isEqualTo(2);
 
     }
+
+
 }
