@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
-// 통합테스트 
+// 통합테스트
 @SpringBootTest  // Spring Container와 테스트를 함께 실행한다.
 @Transactional // 테스트 케이스에 annotation이 있으면 테스트 시작 전에 트랜잭션을 시작하고, 완료 후 항상 롤백한다.
                // DB상에 데이터가 남지 않아 다음 테스트나 운영 DB에 영향을 주지 않는다.
@@ -42,10 +42,10 @@ class MemberServiceIntegrationTest {
     public void duplicate_join_exception() {
         // given
         Member member1 = new Member();
-        member1.setName("hello");
+        member1.setName("sssss");
 
         Member member2 = new Member();
-        member2.setName("hello");
+        member2.setName("sssss");
 
         // when
         memberService.join(member1);
