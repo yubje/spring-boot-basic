@@ -26,7 +26,7 @@ class MemberServiceIntegrationTest {
     void join() {
         // given
         Member member = new Member();
-        member.setName("hello");
+        member.setName("hello1");
 
         // when
         Long saveId = memberService.join(member);
