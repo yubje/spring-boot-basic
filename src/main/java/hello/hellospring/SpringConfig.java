@@ -18,14 +18,14 @@ Service에서 컴포넌트 스캔을 사용하지 않 설정 직접 하지 않�
 @Configuration
 public class SpringConfig {
 
-    private DataSource dataSource;
+//    private DataSource dataSource;
 
     // jpa 도입을 위한 설정
     private EntityManager em;
 
     @Autowired
     public SpringConfig(DataSource dataSource, EntityManager em) {
-        this.dataSource = dataSource;
+//        this.dataSource = dataSource;
         this.em = em;
     }
 
