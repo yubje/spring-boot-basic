@@ -1,11 +1,10 @@
 package hello.hellospring.repository;
 
 import hello.hellospring.domain.Member;
-import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
+// @Repository  SpringDataJapMemberRepository 등록 시 2개의 Repository가 인식되므로 주석 처리
 public class MemoryMemberRepository implements MemberRepository {
 
     private static Map<Long, Member> store = new HashMap<>();
