@@ -19,8 +19,10 @@ public class Member {
 
     private String name;
 
+    @Embedded
     private Address address;
 
+    @OneToMany(mappedBy = "member") // 연관관계의 주인이 아니며 읽기 전용임을 표기
     private List<Order> orders = new ArrayList<>();
 
 }
