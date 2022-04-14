@@ -7,8 +7,8 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import static javax.persistence.FetchType.LAZY;
 
-import static javax.persistence.FetchType.*;
 
 @Entity
 @Getter  @Setter
@@ -20,7 +20,7 @@ public class Category {
 
     private String name;
 
-    @ManyToMany  // 실무에서는 사용하지 않음. 커스터마이징이 용이하지 않음
+    @ManyToMany(fetch = LAZY)  // 실무에서는 사용하지 않음. 커스터마이징이 용이하지 않음
     @JoinTable(name="category_item",
             joinColumns = @JoinColumn(name="category_id"),
             inverseJoinColumns = @JoinColumn(name="item_id"))
