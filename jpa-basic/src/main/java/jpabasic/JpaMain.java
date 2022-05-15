@@ -14,13 +14,31 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
+
         try {
+            /* create logic */
             Member member = new Member();
             member.setId(1L);
             member.setName("name");
 
             em.persist(member);
             tx.commit();
+
+            /* read logic */
+            Member findMember = em.find(Member.class, 1L);
+            System.out.println("findMember.id = "+ findMember.getId());
+            System.out.println("findMember.name = "+ findMember.getName());
+
+            /* update logic */
+            findMember.setName("changed name");
+
+            
+            System.out.println("findMember.id = "+ findMember.getId());
+            System.out.println("findMember.name = "+ findMember.getName());
+
+            /* remove logic */
+            em.remove(findMember);
+
         } catch (Exception e) {
             tx.rollback();
         } finally {
