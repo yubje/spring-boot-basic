@@ -19,7 +19,7 @@ public class JpaMain {
             /* create logic */
             Member member = new Member();
             member.setId(1L);
-            member.setName("name");
+            member.setUsername("name");
 
             em.persist(member); // 1차 캐시에 저장
             tx.commit();  // 커밋할 때 쿼리가 수행됨
@@ -27,14 +27,14 @@ public class JpaMain {
             /* read logic */
             Member findMember = em.find(Member.class, 1L); // 1차 캐시에서 조회
             System.out.println("findMember.id = "+ findMember.getId());
-            System.out.println("findMember.name = "+ findMember.getName());
+            System.out.println("findMember.name = "+ findMember.getUsername());
 
             /* update logic */
-            findMember.setName("changed name"); // 커밋 시점에 변경사항 반영됨
+            findMember.setUsername("changed name"); // 커밋 시점에 변경사항 반영됨
 
 
             System.out.println("findMember.id = "+ findMember.getId());
-            System.out.println("findMember.name = "+ findMember.getName());
+            System.out.println("findMember.name = "+ findMember.getUsername());
 
             /* remove logic */
             em.remove(findMember);
@@ -42,8 +42,8 @@ public class JpaMain {
 
 
             /* 트랜잭션을 지원하는 쓰기 지연 */
-            Member member1 = new Member(150L, "A");
-            Member member2 = new Member(160L, "B");
+            Member member1 = new Member();
+            Member member2 = new Member();
 
             // 영속성 컨텍스트에 저장
             em.persist(member1);
